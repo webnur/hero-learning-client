@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import './Register.css'
 
 const Register = () => {
 
@@ -48,8 +50,16 @@ const Register = () => {
                                 <input className='btn btn-primary' type="submit" value="Submit" />
                             </div>
                         </form>
+                        <h2 className='text-center mt-2 font-bold'>OR</h2>
+                        <div className='flex justify-center mt-1'>
+                            <div className='mr-4 text-xl p-4 rounded-full google-color'>
+                                <FaGoogle className=''></FaGoogle>
+                            </div>
+                            <div className='text-xl p-4 rounded-full github-color'>
+                                <FaGithub className=''></FaGithub>
+                            </div>
 
-
+                        </div>
 
 
                     </div>
