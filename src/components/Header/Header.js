@@ -10,7 +10,7 @@ const Header = () => {
             </div>
             <div className="flex-none">
 
-    
+
 
                 <ul className="menu menu-horizontal p-0">
                     <li> <Link to='/'>home</Link></li>
@@ -19,6 +19,12 @@ const Header = () => {
                     <li><Link to='/login'>LogIn</Link> </li>
                     <li> <Link to='/register'>Register</Link> </li>
                 </ul>
+            </div>
+
+            <div className="avatar">
+                <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" />
+                </div>
             </div>
         </div>
     );
