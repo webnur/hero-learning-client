@@ -4,7 +4,13 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import './Header.css'
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.error(e))
+    }
     return (
         <div className="navbar bg-base-400">
             <div className="flex-1">
@@ -18,9 +24,14 @@ const Header = () => {
                     <li> <Link to='/'>home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
-                    <li><Link to='/login'>LogIn</Link> </li>
-                    <li> <Link to='/register'>Register</Link> </li>
-                    {/* <p>{user.name ? user.name : ''}</p> */}
+
+                    {user?.uid ? <button onClick={handleLogOut} className="btn btn-outline btn-success">Log Out</button> :
+                        <>
+                            <li><Link to='/login'>LogIn</Link> </li>
+                            <li> <Link to='/register'>Register</Link> </li>
+                        </>}
+
+
                 </ul>
             </div>
 
