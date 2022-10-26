@@ -5,7 +5,7 @@ import './Register.css'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser, googleSigIn } = useContext(AuthContext)
+    const { createUser, googleSigIn, githubSignIn } = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -27,6 +27,16 @@ const Register = () => {
 
     const handleGoogleSignIn = () => {
         googleSigIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(e => console.error(e))
+    }
+
+
+    const handleGithubSignIn = () => {
+        githubSignIn()
         .then(result => {
             const user = result.user;
             console.log(user)
@@ -74,7 +84,7 @@ const Register = () => {
                             <div className='mr-4 text-xl p-4 rounded-full google-color'>
                                 <FaGoogle onClick={handleGoogleSignIn} className=''></FaGoogle>
                             </div>
-                            <div className='text-xl p-4 rounded-full github-color'>
+                            <div onClick={handleGithubSignIn} className='text-xl p-4 rounded-full github-color'>
                                 <FaGithub className=''></FaGithub>
                             </div>
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleSigIn } = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -21,6 +21,15 @@ const Login = () => {
             })
             .catch(e => console.error(e))
 
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSigIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(e => console.error(e))
     }
 
 
@@ -53,7 +62,7 @@ const Login = () => {
 
                         <h2 className='text-center mt-2 font-bold'>OR</h2>
                         <div className='flex justify-center mt-1'>
-                            <div className='mr-4 text-xl p-4 rounded-full google-color'>
+                            <div onClick={handleGoogleSignIn} className='mr-4 text-xl p-4 rounded-full google-color'>
                                 <FaGoogle className=''></FaGoogle>
                             </div>
                             <div className='text-xl p-4 rounded-full github-color'>
