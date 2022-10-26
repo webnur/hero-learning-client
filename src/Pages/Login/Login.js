@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
-    const { signIn, googleSigIn } = useContext(AuthContext)
+    const { signIn, googleSigIn, githubSignIn } = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -31,7 +31,14 @@ const Login = () => {
             })
             .catch(e => console.error(e))
     }
-
+    const handleGithubSignIn = () => {
+        githubSignIn()
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(e => console.error(e))
+    }
 
     return (
         <div className="  bg-base-200">
@@ -56,7 +63,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className='btn btn-primary' type="submit" value="Submit" />
+                                <input className='btn btn-primary' type="submit" value="Log In" />
                             </div>
                         </form>
 
@@ -65,7 +72,7 @@ const Login = () => {
                             <div onClick={handleGoogleSignIn} className='mr-4 text-xl p-4 rounded-full google-color'>
                                 <FaGoogle className=''></FaGoogle>
                             </div>
-                            <div className='text-xl p-4 rounded-full github-color'>
+                            <div onClick={handleGithubSignIn} className='text-xl p-4 rounded-full github-color'>
                                 <FaGithub className=''></FaGithub>
                             </div>
 

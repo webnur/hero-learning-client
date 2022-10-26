@@ -76,7 +76,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className='btn btn-primary' type="submit" value="Submit" />
+                                <input className='btn btn-primary' type="submit" value="Register" />
                             </div>
                         </form>
                         <h2 className='text-center mt-2 font-bold'>OR</h2>
