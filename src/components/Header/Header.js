@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import './Header.css'
 
 const Header = () => {
+    const {user} = useContext(AuthContext)
     return (
         <div className="navbar bg-base-400">
             <div className="flex-1">
@@ -18,6 +20,7 @@ const Header = () => {
                     <li><Link to='/blogs'>Blogs</Link></li>
                     <li><Link to='/login'>LogIn</Link> </li>
                     <li> <Link to='/register'>Register</Link> </li>
+                    {/* <p>{user.name ? user.name : ''}</p> */}
                 </ul>
             </div>
 
