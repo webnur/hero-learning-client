@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
+import { useState } from 'react';
+import { FaBars, FaTimesCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import './Header.css'
 
 const Header = () => {
+    const [open, setOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
@@ -18,9 +21,17 @@ const Header = () => {
             </div>
             <div className="flex-none">
 
+            <div onClick={() => setOpen(!open)} className="h-6 w-6 md:hidden">
+                {
+                    open ?
+                    <FaTimesCircle></FaTimesCircle>
+                   :
+                    <FaBars></FaBars>
+                }
+                </div>
 
 
-                <ul className="menu menu-horizontal p-0">
+                <ul className={`md:flex md:justify-center md:static absolute duration-500 ease-in z-[100] w-2/5 ${open ? 'top-[66px]' : 'top-[-150px]'}`}>
                     <li> <Link to='/'>home</Link></li>
                     <li><Link to='/courses'>Courses</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
