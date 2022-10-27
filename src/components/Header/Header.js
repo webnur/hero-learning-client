@@ -8,8 +8,6 @@ import './Header.css'
 const Header = () => {
     const [open, setOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext);
-    console.log(user)
-
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -53,9 +51,9 @@ const Header = () => {
 
             <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
                 <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} />
 
-                   
+                    {user?.photoURL && <img src={user?.photoURL} />}
+
 
                 </div>
             </div>

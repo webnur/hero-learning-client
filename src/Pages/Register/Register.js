@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import './Register.css'
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -75,9 +74,6 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                                <label className="label">
-                                    <Link className="label-text-alt link link-hover">Forgot password?</Link>
-                                </label>
                             </div>
                             <div className="form-control mt-6">
                                 <input className='btn btn-primary' type="submit" value="Register" />

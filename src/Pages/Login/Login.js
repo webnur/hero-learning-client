@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
@@ -74,9 +74,6 @@ const Login = () => {
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
-                                <label className="label">
-                                    <Link className="label-text-alt link link-hover">Forgot password?</Link>
-                                </label>
                                 {error && <p className='text-red-600'>{error.message}</p>}
                             </div>
                             <div className="form-control mt-6">
