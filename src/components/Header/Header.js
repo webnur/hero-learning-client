@@ -21,25 +21,29 @@ const Header = () => {
             </div>
             <div className="flex-none">
 
-            <div onClick={() => setOpen(!open)} className="h-6 w-6 md:hidden">
-                {
-                    open ?
-                    <FaTimesCircle></FaTimesCircle>
-                   :
-                    <FaBars></FaBars>
-                }
+                <div onClick={() => setOpen(!open)} className="h-6 w-6 md:hidden mr-4">
+                    {
+                        open ?
+                            <FaTimesCircle></FaTimesCircle>
+                            :
+                            <FaBars></FaBars>
+                    }
                 </div>
 
 
-                <ul className={`md:flex md:justify-center md:static absolute duration-500 ease-in z-[100] w-2/5 ${open ? 'top-[66px]' : 'top-[-150px]'}`}>
-                    <li> <Link to='/'>home</Link></li>
-                    <li><Link to='/courses'>Courses</Link></li>
-                    <li><Link to='/blogs'>Blogs</Link></li>
+                <ul className={`md:flex md:justify-center items-center md:static absolute duration-500 ease-in z-[100] w-2/5 ${open ? 'top-[66px]' : 'top-[-250px]'}`}>
 
-                    {user?.uid ? <button onClick={handleLogOut} className="btn btn-outline btn-success">Log Out</button> :
+                    <li> <Link className='block md:inline md:mr-6 pl-2 text-white bg-violet-400 hover:bg-red-400 md:hover:bg-inherit md:bg-inherit md:text-black py-2 md:py-0 mb-2 md:mb-0 hover:text-violet-500 font-medium' to='/'>home</Link></li>
+                    <li><Link className='block md:inline md:mr-6 pl-2 text-white bg-violet-400 hover:bg-red-400 md:hover:bg-inherit md:bg-inherit md:text-black py-2 md:py-0 mb-2 md:mb-0 hover:text-violet-500 font-medium' to='/courses'>Courses</Link></li>
+                    <li><Link className='block md:inline md:mr-6 pl-2 text-white bg-violet-400 hover:bg-red-400 md:hover:bg-inherit md:bg-inherit md:text-black py-2 md:py-0 mb-2 md:mb-0 hover:text-violet-500 font-medium' to='/blogs'>Blogs</Link></li>
+
+
+                    {user?.uid ?
+                        <li onClick={handleLogOut} className="btn btn-primary ml-2">Log Out</li>
+                        :
                         <>
-                            <li><Link to='/login'>LogIn</Link> </li>
-                            <li> <Link to='/register'>Register</Link> </li>
+                            <li><Link className='block md:inline md:mr-6 pl-2 text-white bg-violet-400 hover:bg-red-400 md:hover:bg-inherit md:bg-inherit md:text-black py-2 md:py-0 mb-2 md:mb-0 hover:text-violet-500 font-medium' to='/login'>LogIn</Link> </li>
+                            <li> <Link className='block md:inline md:mr-6 pl-2 text-white bg-violet-400 hover:bg-red-400 md:hover:bg-inherit md:bg-inherit md:text-black py-2 md:py-0 mb-2 md:mb-0 hover:text-violet-500 font-medium' to='/register'>Register</Link> </li>
                         </>}
 
 
@@ -49,6 +53,8 @@ const Header = () => {
             <div className="avatar">
                 <div className="w-10 rounded-full">
                     <img src="https://placeimg.com/192/192/people" />
+
+
                 </div>
             </div>
         </div>
