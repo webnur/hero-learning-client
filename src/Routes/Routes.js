@@ -23,7 +23,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://assignment-10-server-tau.vercel.app/courses')
             },
             {
                 path: '/courses',
@@ -33,12 +33,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <Course></Course>,
-                loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-10-server-tau.vercel.app/category/${params.id}`)
             },
             {
                 path: '/courseDetails/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/courseDetails/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-10-server-tau.vercel.app/courseDetails/${params.id}`)
             },
             {
                 path: '/blogs',
