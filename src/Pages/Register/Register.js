@@ -22,7 +22,9 @@ const Register = () => {
                 form.reset()
                 updateUserProfile(name)
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+            })
 
     }
 
