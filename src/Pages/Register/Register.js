@@ -5,20 +5,22 @@ import './Register.css'
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
-    const { createUser, googleSigIn, githubSignIn } = useContext(AuthContext)
+    const { createUser, googleSigIn, githubSignIn, updateUserProfile } = useContext(AuthContext)
 
     const handleSubmit = event => {
         event.preventDefault();
 
         const form = event.target;
+        const name = form.name.value
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        console.log(email, password, name);
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
                 form.reset()
+                updateUserProfile(name)
             })
             .catch(error => console.error(error))
 
