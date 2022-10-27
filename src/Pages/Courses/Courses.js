@@ -22,7 +22,7 @@ const Courses = () => {
                 <ul className="menu bg-base-200 w-56 p-2 rounded-box" >
 
                     {
-                        categories.map(category => <li key={category.id}><Link to={`category/${category.id}`} className='mx-auto'>{category.name}</Link></li>)
+                        categories.map(category => <li key={category.id}><Link to={`/category/${category.id}`} className='mx-auto'>{category.name}</Link></li>)
                     }
                 </ul>
             </div>
