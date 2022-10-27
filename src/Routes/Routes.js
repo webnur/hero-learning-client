@@ -5,6 +5,7 @@ import CheckOut from "../Pages/CheckOut/CheckOut";
 import Course from "../Pages/Course/Course";
 import CourseDetails from "../Pages/CourseDetails/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -16,7 +17,7 @@ import PrivateRoute from "./PrivateRoute";
 export const routes = createBrowserRouter([
     {
         path: '/',
-        errorElement: <h2>this is error page upcoming</h2>,
+        errorElement: <ErrorPage></ErrorPage>,
         element: <Main></Main>,
         children: [
             {
